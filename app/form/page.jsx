@@ -16,7 +16,6 @@ const MultiStepForm = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" });
   };
 
   const validate = () => {
@@ -62,15 +61,8 @@ const MultiStepForm = () => {
     e.preventDefault();
     setSubmitted(true); 
     if (validate()) {
+      setErrors({});
       alert("Form submitted successfully");
-      setFormData({
-        firstName: "",
-        lastName: "",
-        mobile: "",
-        address: "",
-        email: "",
-        password: "",
-      })
       console.log(formData);
     }
   };
